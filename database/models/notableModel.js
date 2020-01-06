@@ -1,9 +1,23 @@
 const mongoose = require('mongoose');
 
-const notableSchema = new mongoose.Schema ({
-	dr_name: String
+const notableSchemaDr = new mongoose.Schema ({
+	d_first_name: String,
+	d_last_name: String
 }, {
 	timestamps: true
 });
 
-module.exports = mongoose.model('notableInfo', notableSchema);
+const notableSchemaAppointment = new mongoose.Schema ({
+	p_first_name: String,
+	p_last_kind: String,
+	kind: String,
+	time: Number,
+	dr_id: Number
+}, {
+	timestamps: true
+});
+
+module.exports = {
+	notableSchemaDr: mongoose.model('notableSchemaDr', notableSchemaDr),
+	notableSchemaAppointment: mongoose.model('notableSchemaAppointment', notableSchemaAppointment),
+}
