@@ -8,11 +8,11 @@ const addDoctor = (doctorInfo, cb) => {
 }
 
 const getAllDoctors = (cb) => {
-	noteableSchemaDr.find().then(cb);
+	notableSchemaDr.find().then(cb);
 }
 
 const getDoctorByName = (doctorInfo, cb) => {
-	noteableSchemaDr.find(doctorInfo).then(cb);
+	notableSchemaDr.find(doctorInfo).then(cb);
 };
 
 const AddAppointment = (appointmentInfo, cb) => {
