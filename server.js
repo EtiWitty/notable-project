@@ -1,9 +1,16 @@
 const express = require('express');
 const dotEnv = require('dotenv');
+const cors = require('cors');
 
 dotEnv.config();
 
 const app = express();
+
+app.use(cors());
+
+app.use(express.json());
+
+app.use(express.urlencoded({extended:true}));
 
 app.get('/',(req, res, next) => {
 	res.send('Hello to Notable');
