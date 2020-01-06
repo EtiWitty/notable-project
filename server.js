@@ -79,7 +79,6 @@ app.post('/appointment/:id', (req, res) => {
 	});
   });
   
-
 // ~~~~~~ Delete an existing appointment from a doctor's calendar
 
 app.delete('/doctors/:id/appointment', (req, res) => {
@@ -88,10 +87,6 @@ app.delete('/doctors/:id/appointment', (req, res) => {
 
 // ~~~~~ Add a new appointment to a doctor's calendar
 	
-// New appointments can only start at 15 minute intervals (ie, 8:15AM is a valid time but 8:20AM is not)
-//A doctor can have multiple appointments with the same time, but no more than 3 appointments can be added with the same time for a given doctor
-
-
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 app.listen (PORT, () => {
