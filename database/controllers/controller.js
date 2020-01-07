@@ -15,12 +15,13 @@ const getDoctorByName = (doctorInfo, cb) => {
 	notableSchemaDr.find(doctorInfo).then(cb);
 };
 
-const AddAppointment = (appointmentInfo, cb) => {
+const addAppointment = (appointmentInfo, cb) => {
 	notableSchemaAppointment.create(appointmentInfo, cb);
 }
 
 module.exports = {
 	addDoctor,
 	getAllDoctors,
-	getDoctorByName
+	getDoctorByName,
+	addAppointment
   };

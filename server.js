@@ -45,9 +45,9 @@ app.get('/doctors', (req, res) => {
 
 // ~~~~~~ Get a list of all appointments for a particular doctor and particular day
 
-app.post('/appointment/:id', (req, res) => {
+app.post('/appointment', (req, res) => {
 	const time = req.params.time;
-	if (time.split(":").length !== 2) {
+	if (typeof(time) !== "string" || time.split(":").length !== 2) {
 		res.status(400);
 		res.send("time must be in HH:MM format");
 		return;
@@ -81,7 +81,7 @@ app.post('/appointment/:id', (req, res) => {
   
 // ~~~~~~ Delete an existing appointment from a doctor's calendar
 
-app.delete('/doctors/:id/appointment', (req, res) => {
+app.delete('/appointment/:id', (req, res) => {
 	controller.deleteAppointment(req.params.id, (err, data) => handleResponse(res, err, data));
   });
 

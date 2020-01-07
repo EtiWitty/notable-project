@@ -12,7 +12,7 @@ const notableSchemaAppointment = new mongoose.Schema ({
 	p_last_kind: String,
 	kind: String,
 	time: Number,
-	dr_id: Number
+	dr_id: String
 }, {
 	timestamps: true
 });
