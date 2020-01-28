@@ -43,7 +43,20 @@ app.get('/doctors', (req, res) => {
 
 // ===================== Appointments =====================
 
+// ~~~~~~ Get a list of all appointments
+app.get('/appointments', (req, res) => {
+	controller.getAllAppointments((err, data) => handleResponse(res, err, data));
+});
+
+
+
 // ~~~~~~ Get a list of all appointments for a particular doctor and particular day
+
+app.get('/appointments/doctors/:id/date/:date', (req, res) => {
+	controller.getAllDoctors((err, data) => handleResponse(res, err, data));
+});
+
+// ~~~~~ Add a new appointment to a doctor's calendar
 
 app.post('/appointment', (req, res) => {
 	const time = req.params.time;
@@ -73,19 +86,23 @@ app.post('/appointment', (req, res) => {
 				p_last_name: req.params.last_name,
 				kind: req.params.kind,
 				time: req.params.time,
+				date: req.params.date,
 				dr_id,
 			}, (err, data) => handleResponse(res, err, data));
 		}
 	});
-  });
+});
   
 // ~~~~~~ Delete an existing appointment from a doctor's calendar
 
 app.delete('/appointment/:id', (req, res) => {
 	controller.deleteAppointment(req.params.id, (err, data) => handleResponse(res, err, data));
+	const data = {
+		mesaage: "Your appointment successfully deleted!",
+		id: dr_id
+	}
   });
 
-// ~~~~~ Add a new appointment to a doctor's calendar
 	
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 

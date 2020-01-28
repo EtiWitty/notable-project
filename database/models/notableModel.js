@@ -11,7 +11,8 @@ const notableSchemaAppointment = new mongoose.Schema ({
 	p_first_name: String,
 	p_last_kind: String,
 	kind: String,
-	time: Number,
+	time: Date,
+	date: Date,
 	dr_id: String
 }, {
 	timestamps: true
